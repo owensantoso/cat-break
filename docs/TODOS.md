@@ -2,7 +2,7 @@
 type: generated-view
 title: Docs Todos
 status: generated
-updated_at: "2026-04-28 01:05:14 JST +0900"
+updated_at: "2026-04-28 01:43:08 JST +0900"
 ---
 
 # Docs Todos
@@ -17,12 +17,4 @@ No structured `TODO-*` items found.
 
 ## Local Checkboxes
 
-| State | Source | Line | Task |
-|---|---|---:|---|
-| open | IMPL-0001-01 | 73 | App scaffold exists. |
-| open | IMPL-0001-01 | 75 | Settings defaults exist. |
-| open | IMPL-0001-01 | 76 | `Cat Now` action exists. |
-| open | IMPL-0001-01 | 77 | Main-display placeholder overlay appears. |
-| open | IMPL-0001-01 | 78 | Countdown is visible. |
-| open | IMPL-0001-01 | 79 | One-snooze behavior exists or is stubbed with documented follow-up. |
-| open | IMPL-0001-01 | 80 | Verification command/manual smoke is documented. |
+No local checkbox todos found.

@@ -3,9 +3,9 @@ type: plan
 id: PLAN-0001
 title: Native macOS Prototype
 domain: product
-status: draft
+status: completed
 created_at: "2026-04-28 00:56:09 JST +0900"
-updated_at: "2026-04-28 00:58:00 JST +0900"
+updated_at: "2026-04-28 01:43:08 JST +0900"
 owner:
 sequence:
   roadmap:
@@ -24,7 +24,7 @@ linked_paths:
   - docs/product/specs/SPEC-0001-cat-break-mvp.md
 repo_state:
   based_on_commit:
-  last_reviewed_commit:
+  last_reviewed_commit: a046a38ba2221ba5a34431ed9d6aee2c357bb18e
 ---
 
 # PLAN-0001 - Native macOS Prototype

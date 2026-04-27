@@ -7,7 +7,15 @@ What is true today?
 - AGENT-DOCS `small` scaffold is installed.
 - Git repository is initialized locally.
 - Public GitHub repository exists at https://github.com/owensantoso/cat-break.
-- No application code exists yet.
+- Initial native macOS Swift Package prototype exists.
+- The package builds an executable named `CatBreak`.
+- Current prototype includes:
+  - Small SwiftUI controller window.
+  - Local in-memory settings defaults for work interval, break duration, timing mode, idle pause threshold, snooze duration, and snooze limit.
+  - Visible time remaining.
+  - `Cat Now` manual trigger.
+  - Main-display AppKit overlay with bundled placeholder cat text, countdown, and one-snooze behavior.
+  - Basic active-use vs. wall-clock timer logic.
 - Product concept: a native macOS break app inspired by Cat Gatekeeper for Chrome.
 - MVP scope decision: whole-system break timer first; app/site-aware behavior can come later.
 - Timer semantics decision: default to active computer use; include a setting to switch to wall-clock timing.
@@ -40,6 +48,11 @@ What is true today?
 - Cat video sourcing needs licensing clarity before shipping.
 - Transparent/chroma-key video overlay feasibility should be prototyped before investing in polish.
 
+## Verification
+
+- `swift test` passes for the initial package and core timer tests.
+
 ## Next Best Step
 
-- Create the first implementation plan for a native macOS prototype.
+- Run the manual smoke flow on macOS with `swift run CatBreak`.
+- Continue PLAN-0001 with deeper verification for timer-triggered overlay, idle pause behavior, and overlay behavior across Spaces/full-screen apps.

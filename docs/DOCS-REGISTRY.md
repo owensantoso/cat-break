@@ -2,7 +2,7 @@
 type: generated-view
 title: Docs Registry
 status: generated
-updated_at: "2026-04-28 01:05:14 JST +0900"
+updated_at: "2026-04-28 01:43:08 JST +0900"
 ---
 
 # Docs Registry
@@ -11,6 +11,6 @@ updated_at: "2026-04-28 01:05:14 JST +0900"
 
 | ID | Type | Title | Status | Path |
 |---|---|---|---|---|
-| IMPL-0001-01 | implementation-brief | Scaffold Native macOS Prototype | draft | `product/plans/PLAN-0001-native-macos-prototype/IMPL-0001-01-scaffold-native-macos-prototype.md` |
-| PLAN-0001 | plan | Native macOS Prototype | draft | `product/plans/PLAN-0001-native-macos-prototype/PLAN-0001-native-macos-prototype.md` |
+| IMPL-0001-01 | implementation-brief | Scaffold Native macOS Prototype | completed | `product/plans/PLAN-0001-native-macos-prototype/IMPL-0001-01-scaffold-native-macos-prototype.md` |
+| PLAN-0001 | plan | Native macOS Prototype | completed | `product/plans/PLAN-0001-native-macos-prototype/PLAN-0001-native-macos-prototype.md` |
 | SPEC-0001 | spec | Cat Break MVP | draft | `product/specs/SPEC-0001-cat-break-mvp.md` |
