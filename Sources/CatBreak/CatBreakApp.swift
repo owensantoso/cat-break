@@ -9,6 +9,7 @@ struct CatBreakApp: App {
         WindowGroup("Cat Break") {
             ControllerWindowView(model: model)
                 .onAppear {
+                    Diagnostics.appStarted()
                     model.onBreakStarted = {
                         overlayController.show(model: model)
                     }

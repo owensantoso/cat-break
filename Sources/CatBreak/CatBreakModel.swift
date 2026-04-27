@@ -8,6 +8,7 @@ final class CatBreakModel {
     var settings: BreakSettings {
         didSet {
             timer.updateSettings(settings)
+            Diagnostics.settingsChanged(settings.diagnosticSnapshot)
         }
     }
 
@@ -67,8 +68,14 @@ final class CatBreakModel {
 
         switch timer.tick(elapsed: elapsed, idleDuration: idleDuration) {
         case .breakStarted:
+            Diagnostics.breakStarted(
+                trigger: "timer",
+                workRemaining: timer.timeRemainingUntilBreak,
+                breakDuration: settings.breakDuration
+            )
             onBreakStarted?()
         case .breakFinished:
+            Diagnostics.breakFinished()
             onBreakEnded?()
         case nil:
             break
@@ -92,6 +99,7 @@ final class CatBreakModel {
         }
         scheduledTimer.tolerance = 0.2
         tickTimer = scheduledTimer
+        Diagnostics.tickingStarted()
     }
 
     func stopTicking() {
@@ -103,6 +111,11 @@ final class CatBreakModel {
     func catNow() {
         timer.startBreak()
         idlePaused = false
+        Diagnostics.breakStarted(
+            trigger: "cat_now",
+            workRemaining: timer.timeRemainingUntilBreak,
+            breakDuration: settings.breakDuration
+        )
         onBreakStarted?()
     }
 
@@ -111,11 +124,17 @@ final class CatBreakModel {
             return
         }
 
+        Diagnostics.breakSnoozed(
+            snoozesUsed: timer.snoozesUsed,
+            snoozeLimit: settings.snoozeLimit,
+            snoozeDuration: settings.snoozeDuration
+        )
         onBreakEnded?()
     }
 
     func finishBreak() {
         timer.finishBreak()
+        Diagnostics.breakFinished()
         onBreakEnded?()
     }
 
@@ -123,11 +142,25 @@ final class CatBreakModel {
         timer.finishBreak()
         idlePaused = false
         previousTick = nil
+        Diagnostics.reset()
         onBreakEnded?()
     }
 
     func useShortTestSettings() {
         settings = .shortTest
         resetTimer()
+    }
+}
+
+private extension BreakSettings {
+    var diagnosticSnapshot: BreakSettingsSnapshot {
+        BreakSettingsSnapshot(
+            workInterval: workInterval,
+            breakDuration: breakDuration,
+            timingMode: timingMode.rawValue,
+            idlePauseThreshold: idlePauseThreshold,
+            snoozeDuration: snoozeDuration,
+            snoozeLimit: snoozeLimit
+        )
     }
 }

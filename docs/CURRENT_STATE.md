@@ -23,6 +23,7 @@ What is true today?
 - Overlay display decision: first prototype targets the main display only.
 - Cat media decision: use a placeholder bundled asset for the first prototype.
 - Testability decision: include visible time remaining, short test intervals, and a manual `Cat Now` action.
+- Diagnostic tracing exists for prototype runtime events under `DIAG-0001`; set `CATBREAK_TRACE_PATH` to capture JSONL during manual smoke.
 - Reference behavior from Cat Gatekeeper Chrome listing:
   - Default usage limit: 60 minutes.
   - Default break time: 5 minutes.
@@ -41,6 +42,7 @@ What is true today?
 - `docs/decisions/` - add short ADR-style notes for durable choices.
 - `docs/session-logs/` - add receipts for meaningful work sessions.
 - `scripts/docs-meta` - AGENT-DOCS metadata helper for IDs and generated views.
+- `docs/repo-health/debugging/diagnostics/DIAG-0001-prototype-runtime-tracing.md` - runtime tracing instructions.
 
 ## Current Risks
 

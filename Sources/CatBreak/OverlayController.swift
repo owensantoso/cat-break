@@ -29,11 +29,13 @@ final class OverlayController {
         self.window = window
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
+        Diagnostics.overlayShown(frame: screenFrame)
     }
 
     func hide() {
         window?.orderOut(nil)
         window?.close()
         window = nil
+        Diagnostics.overlayHidden()
     }
 }
