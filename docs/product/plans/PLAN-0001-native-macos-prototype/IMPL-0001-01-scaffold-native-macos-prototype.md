@@ -3,9 +3,9 @@ type: implementation-brief
 id: IMPL-0001-01
 title: Scaffold Native macOS Prototype
 domain: product
-status: draft
+status: completed
 created_at: "2026-04-28 00:56:09 JST +0900"
-updated_at: "2026-04-28 00:58:00 JST +0900"
+updated_at: "2026-04-28 01:43:08 JST +0900"
 parent_plan: PLAN-0001
 task_refs:
   - PLAN-0001#task-1
@@ -26,7 +26,7 @@ linked_paths:
   - docs/product/specs/SPEC-0001-cat-break-mvp.md
 repo_state:
   based_on_commit:
-  last_reviewed_commit:
+  last_reviewed_commit: a046a38ba2221ba5a34431ed9d6aee2c357bb18e
 ---
 
 # IMPL-0001-01 - Scaffold Native macOS Prototype
@@ -89,23 +89,25 @@ Update implementation docs with the actual build/test command once the scaffold 
 Run once scaffold exists:
 
 ```bash
-# Fill in with actual build command after project creation.
+swift test
+swift run CatBreak
 ```
 
 Manual smoke:
 
-- Launch app.
+- Launch app with `swift run CatBreak`.
 - Click `Cat Now`.
 - Confirm overlay appears above normal apps on the main display.
 - Confirm countdown is visible.
 - Confirm snooze can be used once by default.
+- Optional quick timer smoke: click `Short Test Settings`, wait 15 seconds, and confirm the overlay appears.
 
 ## Done Checklist
 
-- [ ] App scaffold exists.
-- [ ] Settings defaults exist.
-- [ ] `Cat Now` action exists.
-- [ ] Main-display placeholder overlay appears.
-- [ ] Countdown is visible.
-- [ ] One-snooze behavior exists or is stubbed with documented follow-up.
-- [ ] Verification command/manual smoke is documented.
+- [x] App scaffold exists.
+- [x] Settings defaults exist.
+- [x] `Cat Now` action exists.
+- [x] Main-display placeholder overlay appears.
+- [x] Countdown is visible.
+- [x] One-snooze behavior exists.
+- [x] Verification command/manual smoke is documented.

@@ -2,7 +2,7 @@
 type: generated-view
 title: Docs Todos
 status: generated
-updated_at: "2026-04-28 01:05:14 JST +0900"
+updated_at: "2026-04-28 02:28:55 JST +0900"
 ---
 
 # Docs Todos
@@ -19,10 +19,11 @@ No structured `TODO-*` items found.
 
 | State | Source | Line | Task |
 |---|---|---:|---|
-| open | IMPL-0001-01 | 73 | App scaffold exists. |
-| open | IMPL-0001-01 | 75 | Settings defaults exist. |
-| open | IMPL-0001-01 | 76 | `Cat Now` action exists. |
-| open | IMPL-0001-01 | 77 | Main-display placeholder overlay appears. |
-| open | IMPL-0001-01 | 78 | Countdown is visible. |
-| open | IMPL-0001-01 | 79 | One-snooze behavior exists or is stubbed with documented follow-up. |
-| open | IMPL-0001-01 | 80 | Verification command/manual smoke is documented. |
+| open | IMPL-0002-01 | 83 | CC0 cat asset selected. |
+| open | IMPL-0002-01 | 85 | Asset provenance documented. |
+| open | IMPL-0002-01 | 86 | Sprite resources added. |
+| open | IMPL-0002-01 | 87 | Sprite renderer added. |
+| open | IMPL-0002-01 | 88 | Overlay uses sprite renderer instead of ASCII placeholder. |
+| open | IMPL-0002-01 | 89 | Countdown and snooze still work. |
+| open | IMPL-0002-01 | 90 | Verification commands pass. |
+| open | IMPL-0002-01 | 91 | Manual smoke completed or remaining manual gap documented. |

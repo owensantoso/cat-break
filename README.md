@@ -4,7 +4,7 @@ Native macOS break app concept: every configurable interval, a large cat overlay
 
 ## Current Status
 
-This repo is in planning/scaffold state. No application code exists yet.
+This repo has an initial native macOS Swift Package prototype.
 
 Start here:
 
@@ -22,6 +22,14 @@ Start here:
 - Main-display overlay first.
 - Placeholder cat asset first.
 - Visible time remaining and `Cat Now` test action.
+
+## Run Prototype
+
+```bash
+swift run CatBreak
+```
+
+The first prototype opens a small controller window. Use `Cat Now` to show the placeholder cat overlay, or `Short Test Settings` to verify timer behavior quickly.
 
 ## Docs
 

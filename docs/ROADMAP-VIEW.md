@@ -2,7 +2,7 @@
 type: generated-view
 title: Roadmap View
 status: generated
-updated_at: "2026-04-28 01:05:14 JST +0900"
+updated_at: "2026-04-28 02:28:55 JST +0900"
 ---
 
 # Roadmap View
@@ -13,4 +13,5 @@ Generated plan-order view. `PLAN-*` IDs are stable identity; `sequence` frontmat
 
 | Sequence | Plan | Plan Name | Title | Status | Domain | Lane | After | Before | Path |
 |---|---|---|---|---|---|---|---|---|---|
-|  | PLAN-0001 | PLAN-0001-native-macos-prototype | Native macOS Prototype | draft | product | product |  |  | `product/plans/PLAN-0001-native-macos-prototype/PLAN-0001-native-macos-prototype.md` |
+|  | PLAN-0001 | PLAN-0001-native-macos-prototype | Native macOS Prototype | completed | product | product |  |  | `product/plans/PLAN-0001-native-macos-prototype/PLAN-0001-native-macos-prototype.md` |
+|  | PLAN-0002 | PLAN-0002-real-cat-asset-pipeline | Real Cat Asset Pipeline | draft | product | product |  |  | `product/plans/PLAN-0002-real-cat-asset-pipeline/PLAN-0002-real-cat-asset-pipeline.md` |

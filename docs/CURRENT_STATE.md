@@ -7,7 +7,17 @@ What is true today?
 - AGENT-DOCS `small` scaffold is installed.
 - Git repository is initialized locally.
 - Public GitHub repository exists at https://github.com/owensantoso/cat-break.
-- No application code exists yet.
+- Initial native macOS Swift Package prototype exists.
+- The package builds an executable named `CatBreak`.
+- Current prototype includes:
+  - Small SwiftUI controller window.
+  - Local in-memory settings defaults for work interval, break duration, timing mode, idle pause threshold, snooze duration, and snooze limit.
+  - Visible time remaining.
+  - `Cat Now` manual trigger.
+  - Main-display AppKit overlay with bundled placeholder cat text, countdown, and one-snooze behavior.
+  - Overlay panel uses shielding level and periodic re-fronting to resist normal app switching during active breaks.
+  - Basic active-use vs. wall-clock timer logic.
+  - Countdown tick timer is registered in common run loop modes so AppKit interactions do not pause updates.
 - Product concept: a native macOS break app inspired by Cat Gatekeeper for Chrome.
 - MVP scope decision: whole-system break timer first; app/site-aware behavior can come later.
 - Timer semantics decision: default to active computer use; include a setting to switch to wall-clock timing.
@@ -15,6 +25,7 @@ What is true today?
 - Overlay display decision: first prototype targets the main display only.
 - Cat media decision: use a placeholder bundled asset for the first prototype.
 - Testability decision: include visible time remaining, short test intervals, and a manual `Cat Now` action.
+- Diagnostic tracing exists for prototype runtime events under `DIAG-0001`; set `CATBREAK_TRACE_PATH` to capture JSONL during manual smoke.
 - Reference behavior from Cat Gatekeeper Chrome listing:
   - Default usage limit: 60 minutes.
   - Default break time: 5 minutes.
@@ -33,6 +44,7 @@ What is true today?
 - `docs/decisions/` - add short ADR-style notes for durable choices.
 - `docs/session-logs/` - add receipts for meaningful work sessions.
 - `scripts/docs-meta` - AGENT-DOCS metadata helper for IDs and generated views.
+- `docs/repo-health/debugging/diagnostics/DIAG-0001-prototype-runtime-tracing.md` - runtime tracing instructions.
 
 ## Current Risks
 
@@ -40,6 +52,11 @@ What is true today?
 - Cat video sourcing needs licensing clarity before shipping.
 - Transparent/chroma-key video overlay feasibility should be prototyped before investing in polish.
 
+## Verification
+
+- `swift test` passes for the initial package and core timer tests.
+
 ## Next Best Step
 
-- Create the first implementation plan for a native macOS prototype.
+- Run the manual smoke flow on macOS with `swift run CatBreak`.
+- Continue PLAN-0001 with deeper verification for timer-triggered overlay, idle pause behavior, and overlay behavior across Spaces/full-screen apps.
