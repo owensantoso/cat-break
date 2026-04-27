@@ -6,6 +6,7 @@ What is true today?
 
 - AGENT-DOCS `small` scaffold is installed.
 - Git repository is initialized locally.
+- Public GitHub repository exists at https://github.com/owensantoso/cat-break.
 - No application code exists yet.
 - Product concept: a native macOS break app inspired by Cat Gatekeeper for Chrome.
 - MVP scope decision: whole-system break timer first; app/site-aware behavior can come later.
