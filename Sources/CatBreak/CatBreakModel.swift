@@ -88,7 +88,7 @@ final class CatBreakModel {
         }
 
         previousTick = nil
-        let scheduledTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        let scheduledTimer = Timer(timeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor in
                 guard let self else {
                     return
@@ -98,6 +98,7 @@ final class CatBreakModel {
             }
         }
         scheduledTimer.tolerance = 0.2
+        RunLoop.main.add(scheduledTimer, forMode: .common)
         tickTimer = scheduledTimer
         Diagnostics.tickingStarted()
     }

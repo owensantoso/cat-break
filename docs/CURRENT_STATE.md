@@ -16,6 +16,7 @@ What is true today?
   - `Cat Now` manual trigger.
   - Main-display AppKit overlay with bundled placeholder cat text, countdown, and one-snooze behavior.
   - Basic active-use vs. wall-clock timer logic.
+  - Countdown tick timer is registered in common run loop modes so AppKit interactions do not pause updates.
 - Product concept: a native macOS break app inspired by Cat Gatekeeper for Chrome.
 - MVP scope decision: whole-system break timer first; app/site-aware behavior can come later.
 - Timer semantics decision: default to active computer use; include a setting to switch to wall-clock timing.
