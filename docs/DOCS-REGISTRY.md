@@ -2,7 +2,7 @@
 type: generated-view
 title: Docs Registry
 status: generated
-updated_at: "2026-04-28 02:12:37 JST +0900"
+updated_at: "2026-04-28 02:28:55 JST +0900"
 ---
 
 # Docs Registry
@@ -13,5 +13,7 @@ updated_at: "2026-04-28 02:12:37 JST +0900"
 |---|---|---|---|---|
 | DIAG-0001 | diagnostic-record | Prototype Runtime Tracing | investigating | `repo-health/debugging/diagnostics/DIAG-0001-prototype-runtime-tracing.md` |
 | IMPL-0001-01 | implementation-brief | Scaffold Native macOS Prototype | completed | `product/plans/PLAN-0001-native-macos-prototype/IMPL-0001-01-scaffold-native-macos-prototype.md` |
+| IMPL-0002-01 | implementation-brief | Add CC0 Sprite Cat Animation | draft | `product/plans/PLAN-0002-real-cat-asset-pipeline/IMPL-0002-01-add-cc0-sprite-cat-animation.md` |
 | PLAN-0001 | plan | Native macOS Prototype | completed | `product/plans/PLAN-0001-native-macos-prototype/PLAN-0001-native-macos-prototype.md` |
+| PLAN-0002 | plan | Real Cat Asset Pipeline | draft | `product/plans/PLAN-0002-real-cat-asset-pipeline/PLAN-0002-real-cat-asset-pipeline.md` |
 | SPEC-0001 | spec | Cat Break MVP | draft | `product/specs/SPEC-0001-cat-break-mvp.md` |

@@ -2,7 +2,7 @@
 type: generated-view
 title: Docs Todos
 status: generated
-updated_at: "2026-04-28 02:12:37 JST +0900"
+updated_at: "2026-04-28 02:28:55 JST +0900"
 ---
 
 # Docs Todos
@@ -17,4 +17,13 @@ No structured `TODO-*` items found.
 
 ## Local Checkboxes
 
-No local checkbox todos found.
+| State | Source | Line | Task |
+|---|---|---:|---|
+| open | IMPL-0002-01 | 83 | CC0 cat asset selected. |
+| open | IMPL-0002-01 | 85 | Asset provenance documented. |
+| open | IMPL-0002-01 | 86 | Sprite resources added. |
+| open | IMPL-0002-01 | 87 | Sprite renderer added. |
+| open | IMPL-0002-01 | 88 | Overlay uses sprite renderer instead of ASCII placeholder. |
+| open | IMPL-0002-01 | 89 | Countdown and snooze still work. |
+| open | IMPL-0002-01 | 90 | Verification commands pass. |
+| open | IMPL-0002-01 | 91 | Manual smoke completed or remaining manual gap documented. |
