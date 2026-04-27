@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 
 @main
@@ -10,6 +11,8 @@ struct CatBreakApp: App {
             ControllerWindowView(model: model)
                 .onAppear {
                     Diagnostics.appStarted()
+                    NSApplication.shared.setActivationPolicy(.regular)
+                    NSApplication.shared.activate(ignoringOtherApps: true)
                     model.onBreakStarted = {
                         overlayController.show(model: model)
                     }
