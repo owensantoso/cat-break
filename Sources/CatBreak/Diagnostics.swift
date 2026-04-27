@@ -62,6 +62,11 @@ enum Diagnostics {
         ])
     }
 
+    static func overlayBroughtForward() {
+        logger.info("event=overlay.brought_forward diag_id=\(diagID, privacy: .public) run_id=\(runID, privacy: .public)")
+        writeJSONLEvent("overlay.brought_forward")
+    }
+
     static func overlayHidden() {
         logger.info("event=overlay.hidden diag_id=\(diagID, privacy: .public) run_id=\(runID, privacy: .public)")
         writeJSONLEvent("overlay.hidden")

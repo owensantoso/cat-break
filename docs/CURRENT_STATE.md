@@ -15,6 +15,7 @@ What is true today?
   - Visible time remaining.
   - `Cat Now` manual trigger.
   - Main-display AppKit overlay with bundled placeholder cat text, countdown, and one-snooze behavior.
+  - Overlay panel stays visible across normal app deactivation and re-fronts itself during active breaks.
   - Basic active-use vs. wall-clock timer logic.
   - Countdown tick timer is registered in common run loop modes so AppKit interactions do not pause updates.
 - Product concept: a native macOS break app inspired by Cat Gatekeeper for Chrome.
