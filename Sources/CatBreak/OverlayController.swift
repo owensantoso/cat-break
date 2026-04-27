@@ -5,6 +5,7 @@ import SwiftUI
 final class OverlayController {
     private var window: CatOverlayPanel?
     private var observers: [NSObjectProtocol] = []
+    private var reassertTimer: Timer?
 
     func show(model: CatBreakModel) {
         if let window {
@@ -16,11 +17,11 @@ final class OverlayController {
         let screenFrame = NSScreen.main?.frame ?? NSScreen.screens.first?.frame ?? .zero
         let window = CatOverlayPanel(
             contentRect: screenFrame,
-            styleMask: [.borderless],
+            styleMask: [.borderless, .nonactivatingPanel],
             backing: .buffered,
             defer: false
         )
-        window.level = .screenSaver
+        window.level = Self.overlayLevel
         window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary, .ignoresCycle]
         window.backgroundColor = .clear
         window.isOpaque = false
@@ -33,12 +34,14 @@ final class OverlayController {
 
         self.window = window
         installObservers()
+        startReassertingOverlay()
         bringOverlayForward(window)
         NSApp.activate(ignoringOtherApps: true)
         Diagnostics.overlayShown(frame: screenFrame)
     }
 
     func hide() {
+        stopReassertingOverlay()
         removeObservers()
         window?.orderOut(nil)
         window?.close()
@@ -46,10 +49,17 @@ final class OverlayController {
         Diagnostics.overlayHidden()
     }
 
-    private func bringOverlayForward(_ window: CatOverlayPanel) {
+    private func bringOverlayForward(_ window: CatOverlayPanel, logEvent: Bool = true) {
+        window.level = Self.overlayLevel
         window.orderFrontRegardless()
         window.makeKeyAndOrderFront(nil)
-        Diagnostics.overlayBroughtForward()
+        if logEvent {
+            Diagnostics.overlayBroughtForward()
+        }
+    }
+
+    private static var overlayLevel: NSWindow.Level {
+        NSWindow.Level(rawValue: Int(CGShieldingWindowLevel()))
     }
 
     private func installObservers() {
@@ -67,6 +77,7 @@ final class OverlayController {
                 }
 
                 self?.bringOverlayForward(window)
+                self?.scheduleDelayedReasserts()
             }
         }
 
@@ -81,11 +92,46 @@ final class OverlayController {
                 }
 
                 window.setFrame(NSScreen.main?.frame ?? window.frame, display: true)
-                self?.bringOverlayForward(window)
+                self?.bringOverlayForward(window, logEvent: false)
             }
         }
 
         observers = [resignObserver, screenObserver]
+    }
+
+    private func startReassertingOverlay() {
+        stopReassertingOverlay()
+
+        let timer = Timer(timeInterval: 0.25, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                guard let window = self?.window else {
+                    return
+                }
+
+                self?.bringOverlayForward(window)
+            }
+        }
+        timer.tolerance = 0.05
+        RunLoop.main.add(timer, forMode: .common)
+        reassertTimer = timer
+    }
+
+    private func stopReassertingOverlay() {
+        reassertTimer?.invalidate()
+        reassertTimer = nil
+    }
+
+    private func scheduleDelayedReasserts() {
+        for delay in [0.05, 0.15, 0.35] {
+            Task { @MainActor in
+                try? await Task.sleep(for: .seconds(delay))
+                guard let window else {
+                    return
+                }
+
+                bringOverlayForward(window)
+            }
+        }
     }
 
     private func removeObservers() {
